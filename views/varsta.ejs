@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Varsta</title>
+    <link href="/public/assets/stil.css" rel="stylesheet" type="text/css" />
+
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body onload="functiiload()">
+
+    <%- include("../views/navbar.ejs") %>
+
+    <% if(user){ %>
+
+        <div class="user">
+            <div> User:
+                <%= user.username %>
+            </div>
+            <a href="/logout"><button>Logout</button></a>
+        </div>
+
+        <% } %>
+
+            <div id="ravas">
+                <label> Horoscop:</label>
+                <div id="msg"> </div>
+            </div>
+    
+            <h3 style="text-align: center">Varsta</h3>
+    
+            <div id="contact" >
+        
+                <label>Data nasterii(DD#MM#YYYY)</label>
+                <input id="datan" placeholder="Introduceti data nasterii" style="height:45px">
+                <button onclick="varsta()">Submit</button>
+                <div id="varstaActuala">Varsta actuala:</div>
+                <div id="countVarsta"></div>
+        
+            </div>
+
+</body>
+
+</html>

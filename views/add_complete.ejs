@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link href="/public/assets/stil.css" rel="stylesheet" type="text/css" />
+
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+    <%- include("../views/navbar.ejs") %>
+
+    <% if(user){ %>
+
+    <div class="user">
+        <div> User:
+            <%= user.username %>
+        </div>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+    <% } %>
+
+    <p style="text-align: center; font-size: 3em;">Ai adaugat un nou obiect in jurnal.
+    </p>
+
+
+
+</body>
+
+</html>

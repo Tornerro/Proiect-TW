@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jurnal</title>
+    <link href="/public/assets/stil.css" rel="stylesheet" type="text/css" />
+
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body onload="markactive()">
+
+    <%- include("../views/navbar.ejs") %>
+
+    <% if(!user){ %>
+    <p style="text-align: center; font-size: 3em;">Pentru a folosi aceasta pagina trebuie sa fii logat!
+        <br>
+        <a href="/login">Mergi la login.</a>
+    </p>
+
+    <% } %>
+
+    <% if(user){ %>
+
+    <div class="user">
+        <div> User:
+            <%= user.username %>
+        </div>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+
+    <% if (locals.BD) { %>
+    <form class="object_table" method="post">
+        <table style="width: 60%; margin-top: 100px; margin-left: 20%; margin-right: 20%;">
+            <tr>
+                <th>id</th>
+                <th>Nume</th>
+                <th>Data</th>
+            </tr>
+            <% for (var i = 0; i < BD.obiecte.length; i++) { %>
+            <tr>
+                <td class="obj">
+                    <%= BD.obiecte[i].id %>
+                </td>
+
+                <td class="obj">
+                    <%= BD.obiecte[i].nume %>
+                </td>
+
+                <td class="obj">
+                    <%= BD.obiecte[i].zi %>.
+                    <%= BD.obiecte[i].luna %>.
+                    <%= BD.obiecte[i].an %>
+                </td>
+
+                <td>
+                    <button type="submit" name="deleteObject" value='<%= BD.obiecte[i].id %>'>Delete</button>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </form>
+    <% } else { %>
+    <p style="text-align: center; font-size: 3em;">Nu exista obiecte de afisat</p>
+    <% } %>
+
+
+
+    <p style="text-align: center; font-size: 2em;">
+        <a href="/add_obj">Adauga un nou obiect in jurnal.</a>
+    </p>
+
+    <% } %>
+
+</body>
+
+</html>

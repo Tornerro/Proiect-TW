@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link href="/public/assets/stil.css" rel="stylesheet" type="text/css" />
+
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body onload="markactive()">
+
+    <%- include("../views/navbar.ejs") %>
+
+    <% if(user){ %>
+
+    <p style="text-align: center; font-size: 3em;">Esti deja logat.</p>
+
+    <div class="user">
+        <div> User:
+            <%= user.username %>
+        </div>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+    <% } %>
+
+    <% if(!user){ %>
+    <h3 style="text-align: center">Login</h3>
+
+    <div id="contact">
+
+        <form id="login" method="post">
+            <label>
+                Username: <input type="text" name="username">
+            </label>
+
+            <label>
+                Parola: <input type="password" name="parola">
+            </label>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <% } %>
+
+</body>
+
+</html>

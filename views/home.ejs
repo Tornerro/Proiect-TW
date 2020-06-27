@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My website</title>
+    <link href="/public/assets/stil.css" rel="stylesheet" type="text/css" />
+
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body onload="markactive()">
+
+    <%- include("../views/navbar.ejs") %>
+
+    <div id="motto">
+        <label> Motto-ul momentului:</label>
+        <div id="timer"> </div>
+    </div>
+
+    <% if(user){ %>
+
+    <div class="user">
+        <div> User:
+            <%= user.username %>
+        </div>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+    <% } %>
+
+    <div id="content">
+        <div id="leftContent" class="scris">
+            <p>Astrofotografia este un tip specializat de fotografie ce constă în fotografierea diverselor obiecte de pe
+                cer sau a altor porțiuni din cerul nopții. Prima fotografie a unui obiect astronomic (mai precis a
+                Lunii) se pare că a fost
+                făcută în 1840, dar abia la sfârșitul secolului al XIX-lea tehnologia fotografiei a evoluat astfel încât
+                să se poată face fotografii mai detaliate ale stelelor.</p>
+            <p><strong>Tipuri de astrofotografie:</strong></p>
+            <ul>
+                <li>Prin obiectivul aparatului foto</li>
+                <li>Prin telescop, realizând o proiecție prin ocular</li>
+                <li>Fotografia în focarul telescopului</li>
+            </ul>
+        </div>
+        <div id="rightContent">
+            <img id="poza" src="poza.jpg" alt="Eroare" />
+        </div>
+    </div>
+
+    <div id="togglebutton" style="text-align: center">
+        <button id="togglebtn" onclick="toggleImg()">Ascunde imaginile</button>
+    </div>
+
+    <div id="video">
+        <iframe class="clip" src="https://youtube.com/embed/3jTEcyMxadw"></iframe>
+    </div>
+
+    <%- include("../views/contact.ejs") %>
+
+</body>
+
+</html>
